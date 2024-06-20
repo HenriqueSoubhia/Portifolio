@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 
@@ -54,60 +54,31 @@ const projetos: Projeto[] = [
 ];
 
 const Projetos = (props: Props) => {
-  const projetosSeparado = [projetos.slice(0, projetos.length / 2), projetos.slice(projetos.length / 2, projetos.length)];
-  
-  console.log(projetosSeparado);
+  const projectsSliced = [
+    projetos.slice(0, projetos.length / 2),
+    projetos.slice(projetos.length / 2, projetos.length),
+  ];
 
   return (
     <section className="flex justify-center py-32 bg-gray-blue">
-      <div className="max-w-6xl w-full flex flex-col gap-6">
+      <div className="max-w-6xl w-full flex flex-col gap-12">
         <h2 className="text-6xl font-bold text-white">Projetos</h2>
 
         <div className="flex gap-6">
-          <div className="flex flex-col flex-1 gap-6">
-            <img
-              className="w-full"
-              src="https://picsum.photos/500/320?random=1"
-              alt=""
-            />
-            <img
-              className="w-full"
-              src="https://picsum.photos/500/250?random=2"
-              alt=""
-            />
-            <img
-              className="w-full"
-              src="https://picsum.photos/500/250?random=3"
-              alt=""
-            />
-            <img
-              className="w-full"
-              src="https://picsum.photos/500/300?random=4"
-              alt=""
-            />
-          </div>
-          <div className="flex flex-col flex-1 gap-6">
-            <img
-              className="w-full"
-              src="https://picsum.photos/500/250?random=1"
-              alt=""
-            />
-            <img
-              className="w-full"
-              src="https://picsum.photos/500/320?random=2"
-              alt=""
-            />
-            <img
-              className="w-full"
-              src="https://picsum.photos/500/300?random=3"
-              alt=""
-            />
-            <img
-              className="w-full"
-              src="https://picsum.photos/500/200?random=4"
-              alt=""
-            />
-          </div>
+          {projectsSliced.map((list) => (
+            <div className="flex flex-col flex-1 gap-6">
+              {list.map((project) => (
+                <a href={project.link} className="relative overflow-hidden group">
+                  <img
+                    className="w-full"
+                    src={project.foto}
+                    alt={project.name}
+                  />
+                  <h4 className="absolute bottom-[-6rem] text-xl font-bold transition-all w-full bg-black/70 text-white py-3 px-4 group-hover:bottom-0">{project.name}</h4>
+                </a>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </section>
