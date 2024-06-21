@@ -18,6 +18,8 @@ const Contato = (props: Props) => {
 
   const [loading, setLoading] = useState<boolean>(false);
 
+  const [status, setStatus] = useState<"success" | "error" | "">("");
+
   const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -27,8 +29,15 @@ const Contato = (props: Props) => {
       message,
     };
 
-    setLoading(true);
+    if (!name || !email || !message) {
+      setStatus("error");
+      setTimeout(() => {
+        setStatus("");
+      }, 3000);
+      return;
+    }
 
+    setLoading(true);
 
     await emailjs
       .send("service_ohwwtnu", "template_mmpk2dg", templateParams, {
@@ -36,10 +45,10 @@ const Contato = (props: Props) => {
       })
       .then(
         () => {
-          console.log("SUCCESS!");
+          setStatus("success");
         },
         (error) => {
-          console.log("FAILED...", error.text);
+          setStatus("error");
         }
       );
 
@@ -48,10 +57,14 @@ const Contato = (props: Props) => {
     setEmail("");
     setName("");
     setmessage("");
+
+    setTimeout(() => {
+      setStatus("");
+    }, 3000);
   };
 
   return (
-    <section className="flex justify-center py-32 bg-neutral-700">
+    <section className="flex justify-center pt-28 pb-40 bg-neutral-700">
       <div className="max-w-6xl flex flex-col w-full gap-12">
         <h2 className="text-6xl font-bold text-white">Entre em contato</h2>
 
@@ -126,9 +139,7 @@ const Contato = (props: Props) => {
           </ul>
         </div>
       </div>
-
-        <Notification type="success"/>
-
+      {status != "" && <Notification type={status} />}
     </section>
   );
 };

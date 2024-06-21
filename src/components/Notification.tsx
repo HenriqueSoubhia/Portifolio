@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
 type Props = {
@@ -6,6 +6,18 @@ type Props = {
 };
 
 const Notification = ({ type }: Props) => {
+  const [isVisible, setIsVisible] = useState<boolean>(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isVisible) return null;
+
   if (type === "success") {
     return (
       <div
@@ -29,8 +41,6 @@ const Notification = ({ type }: Props) => {
       </div>
     );
   }
-
-  return null;
 };
 
 export default Notification;
