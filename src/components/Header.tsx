@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type Props = {};
 
 const Header = (props: Props) => {
@@ -11,16 +13,16 @@ const Header = (props: Props) => {
         <nav>
           <ul className="flex">
             <li className="p-5 transition-all cursor-pointer hover:bg-skyblue hover:text-gray-blue">
-              <a href="">Home</a>
+              <Link href="#home">Home</Link>
             </li>
             <li className="p-5 transition-all cursor-pointer hover:bg-skyblue hover:text-gray-blue">
-              <a href="">Home</a>
+              <Link href="#sobre">Sobre</Link>
             </li>
             <li className="p-5 transition-all cursor-pointer hover:bg-skyblue hover:text-gray-blue">
-              <a href="">Home</a>
+              <Link href="#projetos">Projetos</Link>
             </li>
             <li className="p-5 transition-all cursor-pointer hover:bg-skyblue hover:text-gray-blue">
-              <a href="">Home</a>
+              <Link href="#contato">Contato</Link>
             </li>
           </ul>
         </nav>

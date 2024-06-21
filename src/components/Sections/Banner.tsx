@@ -9,7 +9,7 @@ type Props = {};
 
 const Banner = (props: Props) => {
   return (
-    <section className="bg-gray-blue flex justify-center text-white py-16">
+    <section id="home" className="bg-gray-blue flex justify-center text-white py-16">
       <div className="max-w-6xl w-full flex">
         <div className="flex flex-col gap-8">
           <h1 className="text-8xl font-bold">

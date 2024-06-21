@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 
 type Props = {};
@@ -60,7 +61,7 @@ const Projetos = (props: Props) => {
   ];
 
   return (
-    <section className="flex justify-center py-32 bg-gray-blue">
+    <section id="projetos" className="flex justify-center py-32 bg-gray-blue">
       <div className="max-w-6xl w-full flex flex-col gap-12">
         <h2 className="text-6xl font-bold text-white">Projetos</h2>
 
@@ -68,14 +69,14 @@ const Projetos = (props: Props) => {
           {projectsSliced.map((list) => (
             <div className="flex flex-col flex-1 gap-6">
               {list.map((project) => (
-                <a href={project.link} className="relative overflow-hidden group">
+                <Link href={project.link} className="relative overflow-hidden group" target="_blank">
                   <img
                     className="w-full"
                     src={project.foto}
                     alt={project.name}
                   />
                   <h4 className="absolute bottom-[-6rem] text-xl font-bold transition-all w-full bg-black/70 text-white py-3 px-4 group-hover:bottom-0">{project.name}</h4>
-                </a>
+                </Link>
               ))}
             </div>
           ))}

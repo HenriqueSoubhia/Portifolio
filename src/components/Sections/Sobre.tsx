@@ -92,7 +92,7 @@ const skills = [
 
 const Sobre = (props: Props) => {
   return (
-    <section className="flex justify-center py-32">
+    <section id="sobre" className="flex justify-center py-32">
       <div className="max-w-6xl w-full flex gap-12 items-center">
         <Image className="max-h-96" src={eu} alt="Foto minha" />
 
