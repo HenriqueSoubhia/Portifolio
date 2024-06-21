@@ -66,10 +66,10 @@ const Projetos = (props: Props) => {
         <h2 className="text-6xl font-bold text-white">Projetos</h2>
 
         <div className="flex gap-6">
-          {projectsSliced.map((list) => (
-            <div className="flex flex-col flex-1 gap-6">
+          {projectsSliced.map((list,i) => (
+            <div className="flex flex-col flex-1 gap-6" key={i} >
               {list.map((project) => (
-                <Link href={project.link} className="relative overflow-hidden group" target="_blank">
+                <Link href={project.link} className="relative overflow-hidden group" target="_blank" key={project.name}>
                   <img
                     className="w-full"
                     src={project.foto}

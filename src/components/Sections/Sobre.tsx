@@ -114,7 +114,7 @@ const Sobre = (props: Props) => {
 
           <div className="flex flex-wrap gap-6 pr-32">
             {skills.map((item) => (
-              <div
+              <div key={item.name}
                 style={{ backgroundColor: item.color }}
                 className={"p-2 flex justify-center group relative"}
               >

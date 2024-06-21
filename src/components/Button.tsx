@@ -2,7 +2,7 @@ import React, { ComponentProps } from "react";
 import { twMerge } from "tailwind-merge";
 
 type Props = ComponentProps<"button"> & {
-  text: string;
+  text?: string;
   icon?: React.ReactNode;
   href?: string;
   onClick?: () => void;
@@ -17,7 +17,7 @@ const Button = ({ text, icon, href, onClick, className }: Props) => {
   if (href) {
     return (
       <a href={href} target="_blank" className={classDefault}>
-        {icon && <span className="text-2xl">{icon}</span>}
+        {icon && icon}
         {text}
       </a>
     );
@@ -25,7 +25,7 @@ const Button = ({ text, icon, href, onClick, className }: Props) => {
 
   return (
     <button onClick={onClick} className={classDefault}>
-      {icon && <span className="text-2xl">{icon}</span>}
+      {icon && icon}
       {text}
     </button>
   );
