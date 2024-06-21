@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    font-size: 16px; /* Base font size */
+}
+
+@media (max-width: 768px) {
+    :root {
+        font-size: 14px; /* Font size for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        font-size: 12px; /* Font size for mobile phones */
+    }
+}

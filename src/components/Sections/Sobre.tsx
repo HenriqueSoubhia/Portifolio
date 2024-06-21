@@ -112,7 +112,7 @@ const Sobre = (props: Props) => {
             temporibus placeat.
           </p>
 
-          <div className="flex flex-wrap gap-6 pr-32">
+          <div className="flex flex-wrap gap-6 pr-18">
             {skills.map((item) => (
               <div key={item.name}
                 style={{ backgroundColor: item.color }}

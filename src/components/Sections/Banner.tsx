@@ -11,18 +11,21 @@ const Banner = (props: Props) => {
   return (
     <section id="home" className="bg-gray-blue flex justify-center text-white py-16">
       <div className="max-w-6xl px-8 w-full flex">
-        <div className="flex flex-col gap-8">
-          <h1 className="text-8xl font-bold">
+        <div className="flex flex-col gap-8 flex-1">
+          <h1 className="text-7xl font-bold">
             <span className="block mb-4">Full-stack</span>
             <span className="block text-skyblue h-[6rem]">
               <TypeAnimation
+                  style={{
+                    wordBreak:"break-all"
+                  }}
                 sequence={["Developer", 5000 , '', 5000]}
                 repeat={Infinity}
                 speed={10}
               />
             </span>
           </h1>
-          <p>
+          <p className="w-1/2 min-w-80">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Perspiciatis sint veritatis soluta praesentium rem molestiae.
           </p>
@@ -42,7 +45,6 @@ const Banner = (props: Props) => {
             />
           </div>
         </div>
-        <div className="w-[56rem]"></div>
       </div>
     </section>
   );
