@@ -9,7 +9,7 @@ const Footer = (props: Props) => {
 
   return (
     <footer className="flex justify-center">
-      <div className="max-w-6xl flex justify-center flex-col items-center w-full gap-6 py-16">
+      <div className="max-w-6xl px-8 flex justify-center flex-col items-center w-full gap-6 py-16">
         <nav className="border-b border-black">
           <ul className="flex">
             <li className="p-5 transition-all cursor-pointe hover:text-gray-blue">

@@ -65,7 +65,7 @@ const Contato = (props: Props) => {
 
   return (
     <section className="flex justify-center pt-28 pb-40 bg-neutral-700">
-      <div className="max-w-6xl flex flex-col w-full gap-12">
+      <div className="max-w-6xl px-8 flex flex-col w-full gap-12">
         <h2 className="text-6xl font-bold text-white">Entre em contato</h2>
 
         <div className="flex gap-6">

@@ -62,7 +62,7 @@ const Projetos = (props: Props) => {
 
   return (
     <section id="projetos" className="flex justify-center py-32 bg-gray-blue">
-      <div className="max-w-6xl w-full flex flex-col gap-12">
+      <div className="max-w-6xl px-8 w-full flex flex-col gap-12">
         <h2 className="text-6xl font-bold text-white">Projetos</h2>
 
         <div className="flex gap-6">

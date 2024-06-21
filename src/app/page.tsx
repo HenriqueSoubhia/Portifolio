@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="pt-20 ">
+      <main className="pt-12 md:pt-20">
         <Banner/>
         <Sobre />
         <Projetos/>
