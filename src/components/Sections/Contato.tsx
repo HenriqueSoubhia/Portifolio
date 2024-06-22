@@ -68,7 +68,7 @@ const Contato = (props: Props) => {
       <div className="max-w-6xl px-8 flex flex-col w-full gap-12">
         <h2 className="text-6xl font-bold text-white">Entre em contato</h2>
 
-        <div className="flex gap-6">
+        <div className="flex gap-24 md:gap-6 flex-col md:flex-row">
           <form
             onSubmit={sendEmail}
             className="flex flex-col flex-1 gap-6 relative"

@@ -68,11 +68,6 @@ const skills = [
     color: "#2F76C4",
   },
   {
-    name: "React-Router",
-    icon: <SiReactrouter />,
-    color: "#f73750",
-  },
-  {
     name: "React Query",
     icon: <SiReactquery /> ,
     color: "#EF4741",
@@ -93,8 +88,8 @@ const skills = [
 const Sobre = (props: Props) => {
   return (
     <section id="sobre" className="flex justify-center py-32">
-      <div className="max-w-6xl px-8 w-full flex gap-12 items-center">
-        <Image className="max-h-96" src={eu} alt="Foto minha" />
+      <div className="max-w-6xl px-8 w-full flex gap-12 items-center flex-col-reverse md:flex-row">
+        <Image className="md:p-0 p-12 md:max-h-96 aspect-square" src={eu} alt="Foto minha" />
 
         <div className="flex flex-col gap-6">
           <h2 className="text-6xl font-bold">Sobre</h2>
@@ -112,7 +107,7 @@ const Sobre = (props: Props) => {
             temporibus placeat.
           </p>
 
-          <div className="flex flex-wrap gap-6 pr-18">
+          <div className="flex flex-wrap gap-6">
             {skills.map((item) => (
               <div key={item.name}
                 style={{ backgroundColor: item.color }}

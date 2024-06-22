@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Contato from "@/components/Sections/Contato";
 
 export default function Home() {
+
   return (
     <>
       <Header />

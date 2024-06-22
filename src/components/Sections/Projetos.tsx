@@ -65,7 +65,7 @@ const Projetos = (props: Props) => {
       <div className="max-w-6xl px-8 w-full flex flex-col gap-12">
         <h2 className="text-6xl font-bold text-white">Projetos</h2>
 
-        <div className="flex gap-6">
+        <div className="flex flex-col md:flex-row gap-6">
           {projectsSliced.map((list,i) => (
             <div className="flex flex-col flex-1 gap-6" key={i} >
               {list.map((project) => (
