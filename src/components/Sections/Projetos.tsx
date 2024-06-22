@@ -2,56 +2,61 @@
 
 import Link from "next/link";
 import React from "react";
+import Image, { StaticImageData } from "next/image";
+
+import coldeFoto from '../../assets/imgs/coldelabs.png'
+import todoFoto from '../../assets/imgs/todo-firebase.png'
+import sassCurso from '../../assets/imgs/sassCurso.png'
 
 type Props = {};
 
 type Projeto = {
   name: string;
   link: string;
-  foto: string;
+  foto: string | StaticImageData;
 };
 
 const projetos: Projeto[] = [
   {
-    name: "Projeto 1",
-    link: "https://www.google.com",
-    foto: "https://picsum.photos/500/320?random=1",
+    name: "Colde Labs - Ensinando programação",
+    link: "https://coldelabs.web.app/",
+    foto: coldeFoto,
   },
   {
-    name: "Projeto 2",
-    link: "https://www.example.com",
-    foto: "https://picsum.photos/500/250?random=2",
+    name: "To do List - React/Firebase",
+    link: "https://github.com/HenriqueSoubhia/to-do-firebase",
+    foto: todoFoto,
   },
   {
-    name: "Projeto 3",
-    link: "https://www.example.com",
-    foto: "https://picsum.photos/500/250?random=3",
+    name: "Layout em SASS",
+    link: "https://github.com/HenriqueSoubhia/projeto-agency-SASS",
+    foto: sassCurso,
   },
-  {
-    name: "Projeto 4",
-    link: "https://www.example.com",
-    foto: "https://picsum.photos/500/300?random=4",
-  },
-  {
-    name: "Projeto 5",
-    link: "https://www.example.com",
-    foto: "https://picsum.photos/500/250?random=5",
-  },
-  {
-    name: "Projeto 6",
-    link: "https://www.example.com",
-    foto: "https://picsum.photos/500/320?random=6",
-  },
-  {
-    name: "Projeto 7",
-    link: "https://www.example.com",
-    foto: "https://picsum.photos/500/300?random=7",
-  },
-  {
-    name: "Projeto 8",
-    link: "https://www.example.com",
-    foto: "https://picsum.photos/500/200?random=8",
-  },
+  // {
+  //   name: "Projeto 4",
+  //   link: "https://www.example.com",
+  //   foto: "https://picsum.photos/500/300?random=4",
+  // },
+  // {
+  //   name: "Projeto 5",
+  //   link: "https://www.example.com",
+  //   foto: "https://picsum.photos/500/250?random=5",
+  // },
+  // {
+  //   name: "Projeto 6",
+  //   link: "https://www.example.com",
+  //   foto: "https://picsum.photos/500/320?random=6",
+  // },
+  // {
+  //   name: "Projeto 7",
+  //   link: "https://www.example.com",
+  //   foto: "https://picsum.photos/500/300?random=7",
+  // },
+  // {
+  //   name: "Projeto 8",
+  //   link: "https://www.example.com",
+  //   foto: "https://picsum.photos/500/200?random=8",
+  // },
 ];
 
 const Projetos = (props: Props) => {
@@ -70,9 +75,10 @@ const Projetos = (props: Props) => {
             <div className="flex flex-col flex-1 gap-6" key={i} >
               {list.map((project) => (
                 <Link href={project.link} className="relative overflow-hidden group" target="_blank" key={project.name}>
-                  <img
+                  <Image
+                
                     className="w-full"
-                    src={project.foto}
+                    src={project.foto as string}
                     alt={project.name}
                   />
                   <h4 className="absolute bottom-[-6rem] text-xl font-bold transition-all w-full bg-black/70 text-white py-3 px-4 group-hover:bottom-0">{project.name}</h4>
