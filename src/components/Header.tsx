@@ -58,7 +58,7 @@ const Header = (props: Props) => {
         </nav>
 
         <div className="md:hidden flex justify-start">
-          <button onClick={toggleMenu} className="text-2xl focus:outline-none">
+          <button onClick={toggleMenu} aria-label="botão menu" className="text-2xl focus:outline-none">
             {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>

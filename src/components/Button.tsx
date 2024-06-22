@@ -10,7 +10,7 @@ type Props = ComponentProps<"button"> & {
 
 const Button = ({ text, icon, href, onClick, className }: Props) => {
   const classDefault = twMerge(
-    "flex items-center py-3 px-4 text-white bg-blue-500 justify-center gap-2 w-30 font-bold transition duration-300 cursor-pointer hover:text-neutral-300 hover:bg-hover-600",
+    "flex items-center py-3 px-4 text-white bg-blue-600 justify-center gap-2 w-30 font-bold transition duration-300 cursor-pointer hover:text-neutral-300 hover:bg-hover-600",
     className
   );
 

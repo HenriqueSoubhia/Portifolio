@@ -79,9 +79,9 @@ const Projetos = (props: Props) => {
                 
                     className="w-full"
                     src={project.foto as string}
-                    alt={project.name}
+                    alt={"print do "+project.name}
                   />
-                  <h4 className="absolute bottom-[-6rem] text-xl font-bold transition-all w-full bg-black/70 text-white py-3 px-4 group-hover:bottom-0">{project.name}</h4>
+                  <h3 className="absolute bottom-[-6rem] text-xl font-bold transition-all w-full bg-black/70 text-white py-3 px-4 group-hover:bottom-0">{project.name}</h3>
                 </Link>
               ))}
             </div>
