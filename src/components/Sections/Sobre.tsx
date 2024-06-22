@@ -64,17 +64,17 @@ const skills = [
   },
   {
     name: "Typescript",
-    icon: <BiLogoTypescript  /> ,
+    icon: <BiLogoTypescript />,
     color: "#2F76C4",
   },
   {
     name: "React Query",
-    icon: <SiReactquery /> ,
+    icon: <SiReactquery />,
     color: "#EF4741",
   },
   {
     name: "NodeJs",
-    icon: <FaNodeJs /> ,
+    icon: <FaNodeJs />,
     color: "#4AA859",
   },
   {
@@ -82,34 +82,41 @@ const skills = [
     icon: <RiNextjsLine color="#fff" />,
     color: "#000",
   },
-
 ];
 
 const Sobre = (props: Props) => {
   return (
     <section id="sobre" className="flex justify-center py-32">
       <div className="max-w-6xl px-8 w-full flex gap-12 items-center flex-col-reverse md:flex-row">
-        <Image className="md:p-0 p-12 md:max-h-96 aspect-square" src={eu} alt="Foto minha" />
+        <Image
+          className="md:p-0 p-12 md:max-h-96 aspect-square"
+          src={eu}
+          alt="Foto minha"
+        />
 
         <div className="flex flex-col gap-6">
           <h2 className="text-6xl font-bold">Sobre</h2>
 
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia
-            quae obcaecati repudiandae in qui, inventore fugit error, odit
-            similique quidem cum, quas quo nostrum illo saepe aliquid iusto eum
-            temporibus!
+            Sou um entusiasta de programação Fullstack com ênfase em React e
+            Node.js. Tenho experiência em HTML, CSS, JavaScript, Python, React,
+            Express.js, Firebase e MongoDB. Estou comprometido em contribuir
+            para projetos inovadores, aplicando meus conhecimentos em UX/UI e
+            APIs. Estou sempre em busca de oportunidades desafiadoras para
+            impulsionar o sucesso de desenvolvimentos diversos.
           </p>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia
-            non velit, ratione aspernatur dolorem mollitia rerum quam! Molestias
-            sed corporis ut ratione tempore laborum veritatis dolorem. Natus vel
-            temporibus placeat.
+            Com um foco em criar experiências de usuário intuitivas e
+            eficientes, eu me esforço para transformar ideias em realidade
+            através de um código limpo e funcional. Seja trabalhando em
+            front-end ou back-end, minha meta é sempre entregar soluções de alta
+            qualidade que atendam às necessidades do usuário final.
           </p>
 
           <div className="flex flex-wrap gap-6">
             {skills.map((item) => (
-              <div key={item.name}
+              <div
+                key={item.name}
                 style={{ backgroundColor: item.color }}
                 className={"p-2 flex justify-center group relative"}
               >
