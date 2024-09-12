@@ -74,7 +74,7 @@ export default function Adm() {
   };
 
   return (
-    <main className="bg-gray-blue gap-4 flex flex-col p-8">
+    <main className="bg-gray-blue gap-4 h-full flex flex-col p-8">
       <h2 className="text-center text-6xl font-bold text-white">
         Adicionar Projeto
       </h2>
