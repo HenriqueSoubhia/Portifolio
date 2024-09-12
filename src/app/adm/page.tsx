@@ -11,7 +11,7 @@ import { FormEvent, useRef, useState } from "react";
 
 import { ref as storageRef } from "firebase/storage";
 import { BeatLoader } from "react-spinners";
-import Projetos from "@/components/Sections/Projetos";
+import Link from "next/link";
 
 export default function Adm() {
   const [name, setName] = useState<string>("");
@@ -77,6 +77,9 @@ export default function Adm() {
 
   return (
     <main className="bg-gray-blue gap-4 h-full flex flex-col p-8">
+
+      <Link href="/" className="text-white">Voltar para Landing page</Link>
+
       <h2 className="text-center text-6xl font-bold text-white">
         Adicionar Projeto
       </h2>
