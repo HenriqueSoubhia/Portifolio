@@ -7,14 +7,10 @@ import { db, storage } from "@/firebaseConfig";
 import { ref, set } from "firebase/database";
 import { getDownloadURL, uploadBytes } from "firebase/storage";
 import Image from "next/image";
-import {
-  FormEvent,
-  useRef,
-  useState,
-} from "react";
+import { FormEvent, useRef, useState } from "react";
 
-// Importe ref do storage
 import { ref as storageRef } from "firebase/storage";
+import { BeatLoader } from "react-spinners";
 
 export default function Adm() {
   const [name, setName] = useState<string>("");
@@ -24,6 +20,8 @@ export default function Adm() {
 
   const [file, setFile] = useState<File | undefined>(undefined);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
+  const [loading, setLoading] = useState(false);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
@@ -36,6 +34,7 @@ export default function Adm() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setLoading(true);
 
     if (!name || !file || !link) {
       alert("Por favor, preencha todos os campos e selecione uma imagem.");
@@ -54,7 +53,7 @@ export default function Adm() {
       await set(ref(db, "projects/" + name), {
         name,
         link,
-        imgUrl: downloadURL
+        imgUrl: downloadURL,
       });
 
       setName("");
@@ -62,10 +61,14 @@ export default function Adm() {
       setFile(undefined);
       setPreviewUrl(null);
 
+      setLoading(false)
+
       alert("Projeto adicionado com sucesso!");
     } catch (error) {
       console.error("Erro ao adicionar projeto:", error);
-      alert("Ocorreu um erro ao adicionar o projeto. Por favor, tente novamente.");
+      alert(
+        "Ocorreu um erro ao adicionar o projeto. Por favor, tente novamente."
+      );
     }
   };
 
@@ -116,7 +119,9 @@ export default function Adm() {
           </div>
         )}
 
-        <Button text="Cadastrar" />
+        {loading && <Button disabled icon={<BeatLoader size={20} color="white" />} />}
+        {!loading && <Button text="Cadastrar" />}
+        
       </form>
     </main>
   );
