@@ -8,6 +8,7 @@ import Button from "../Button";
 import emailjs from "@emailjs/browser";
 import { BeatLoader } from "react-spinners";
 import Notification from "../Notification";
+import Input from "../Input";
 
 type Props = {};
 
@@ -64,7 +65,10 @@ const Contato = (props: Props) => {
   };
 
   return (
-    <section id="contato" className="flex justify-center pt-28 pb-40 bg-neutral-700">
+    <section
+      id="contato"
+      className="flex justify-center pt-28 pb-40 bg-neutral-700"
+    >
       <div className="max-w-6xl px-8 flex flex-col w-full gap-12">
         <h2 className="text-6xl font-bold text-white">Entre em contato</h2>
 
@@ -73,29 +77,19 @@ const Contato = (props: Props) => {
             onSubmit={sendEmail}
             className="flex flex-col flex-1 gap-6 relative"
           >
-            <input
-              className="px-4 py-3 outline-none border-none bg-neutral-100"
-              type="text"
-              placeholder="Nome"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setName(e.target.value)
-              }
-            />
-            <input
-              className="px-4 py-3 outline-none border-none bg-neutral-100"
-              type="email"
+            <Input placeholder="Nome" setValueFn={setName} value={name} />
+            <Input
               placeholder="Email"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setEmail(e.target.value)
-              }
+              type="email"
+              setValueFn={setEmail}
+              value={email}
             />
-            <textarea
-              className="px-4 py-3 outline-none border-none bg-neutral-100 resize-none h-32"
+            <Input
               placeholder="Mensagem"
-              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-                setmessage(e.target.value)
-              }
-            ></textarea>
+              type="textarea"
+              setValueFn={setmessage}
+              value={message}
+            />
 
             {loading && (
               <Button
