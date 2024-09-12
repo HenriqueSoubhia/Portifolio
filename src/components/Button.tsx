@@ -5,7 +5,6 @@ type Props = ComponentProps<"button"> & {
   text?: string;
   icon?: React.ReactNode;
   href?: string;
-  onClick?: () => void;
 };
 
 const Button = ({ text, icon, href, onClick, className }: Props) => {
