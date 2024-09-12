@@ -2,14 +2,19 @@
 
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+import { db, storage } from "@/firebaseConfig";
+
+import { ref, set } from "firebase/database";
+import { getDownloadURL, uploadBytes } from "firebase/storage";
 import Image from "next/image";
 import {
-  ChangeEvent,
   FormEvent,
-  MouseEventHandler,
   useRef,
   useState,
 } from "react";
+
+// Importe ref do storage
+import { ref as storageRef } from "firebase/storage";
 
 export default function Adm() {
   const [name, setName] = useState<string>("");
@@ -29,18 +34,39 @@ export default function Adm() {
     }
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    if (!name || !file || !link) return;
+    if (!name || !file || !link) {
+      alert("Por favor, preencha todos os campos e selecione uma imagem.");
+      return;
+    }
 
-    const project = {
-      name,
-      file,
-      link,
-    };
+    try {
+      const fileName = `${Date.now()}-${file.name}`;
 
-    
+      const imageRef = storageRef(storage, `images/${fileName}`);
+
+      const snapshot = await uploadBytes(imageRef, file);
+
+      const downloadURL = await getDownloadURL(snapshot.ref);
+
+      await set(ref(db, "projects/" + name), {
+        name,
+        link,
+        imgUrl: downloadURL
+      });
+
+      setName("");
+      setLink("");
+      setFile(undefined);
+      setPreviewUrl(null);
+
+      alert("Projeto adicionado com sucesso!");
+    } catch (error) {
+      console.error("Erro ao adicionar projeto:", error);
+      alert("Ocorreu um erro ao adicionar o projeto. Por favor, tente novamente.");
+    }
   };
 
   return (
