@@ -36,9 +36,10 @@ export default function Adm() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
-
+    
     if (!name || !file || !link) {
       alert("Por favor, preencha todos os campos e selecione uma imagem.");
+      setLoading(false)
       return;
     }
 
@@ -67,6 +68,7 @@ export default function Adm() {
       alert("Projeto adicionado com sucesso!");
     } catch (error) {
       console.error("Erro ao adicionar projeto:", error);
+      setLoading(false)
       alert(
         "Ocorreu um erro ao adicionar o projeto. Por favor, tente novamente."
       );
