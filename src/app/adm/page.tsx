@@ -11,6 +11,7 @@ import { FormEvent, useRef, useState } from "react";
 
 import { ref as storageRef } from "firebase/storage";
 import { BeatLoader } from "react-spinners";
+import Projetos from "@/components/Sections/Projetos";
 
 export default function Adm() {
   const [name, setName] = useState<string>("");
@@ -73,7 +74,7 @@ export default function Adm() {
   };
 
   return (
-    <main className="bg-gray-blue h-full gap-4 flex flex-col p-8">
+    <main className="bg-gray-blue gap-4 flex flex-col p-8">
       <h2 className="text-center text-6xl font-bold text-white">
         Adicionar Projeto
       </h2>
@@ -123,6 +124,8 @@ export default function Adm() {
         {!loading && <Button text="Cadastrar" />}
         
       </form>
+
+
     </main>
   );
 }
