@@ -1,5 +1,4 @@
 import React from "react";
-import eu from "@/assets/imgs/eu.webp";
 import Image from "next/image";
 import { AiFillHtml5 } from "react-icons/ai";
 import {
@@ -87,14 +86,16 @@ const skills = [
 const Sobre = (props: Props) => {
   return (
     <section id="sobre" className="flex justify-center py-32">
-      <div className="max-w-6xl px-8 w-full flex gap-12 items-center flex-col-reverse md:flex-row">
+      <div className="max-w-6xl px-8 w-full gap-12 grid grid-cols-1 md:grid-cols-5">
         <Image
-          className="md:p-0 p-12 md:max-h-96 aspect-square"
-          src={eu}
+          className="order-2 md:-order-1 col-span-2"
+          src={"/eu.webp"}
+          width={600}
+          height={600}
           alt="Foto minha"
         />
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 col-span-3">
           <h2 className="text-6xl font-bold">Sobre</h2>
 
           <p>
